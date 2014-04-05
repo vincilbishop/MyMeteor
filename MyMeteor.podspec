@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 	spec.name		= 'MyMeteor'
-	spec.version	= '0.0.1'
+	spec.version	= '0.0.2'
 	spec.homepage   = "http://github.com/premosystems/MyMeteor"
 	spec.author     = { "Vincil Bishop" => "vincil.bishop@vbishop.com" }
 	spec.license	= 'MIT'
@@ -14,6 +14,16 @@ Pod::Spec.new do |spec|
 	spec.resource = 'MyMeteor.podspec'
 
 	spec.source_files = 'MyMeteor/*.{h,m}'
-	spec.ios.dependency 'ObjectiveDDP', '~>0.1.3'
+
+    spec.subspec "Core" do |core|
+        core.source_files = 'MyMeteor/Core/*.{h,m}'
+        core.ios.dependency 'ObjectiveDDP', '~>0.1.3'
+    end
+    
+    spec.subspec "UIKit" do |uikit|
+        uikit.source_files = 'MyMeteor/UIKit/*.{h,m}'
+        uikit.ios.dependency 'MyMeteor/Core'
+        uikit.ios.dependency 'MyiOSHelpers/View/Screens/ModelObjectTableViewControllerBase', '~>0.0.2'
+    end
 	
 end # spec

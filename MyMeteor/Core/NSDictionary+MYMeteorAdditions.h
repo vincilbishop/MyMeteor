@@ -11,6 +11,7 @@
 @interface NSDictionary (MYMeteorAdditions)
 
 - (BOOL) logonSuccess;
-- (id) result;
+- (NSDictionary*) result;
+- (NSArray*) resultArray;
 
 @end

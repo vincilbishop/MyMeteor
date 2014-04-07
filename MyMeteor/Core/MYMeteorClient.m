@@ -7,6 +7,7 @@
 //
 
 #import "MYMeteorClient.h"
+#import "MeteorClient+Private.h"
 
 @implementation MYMeteorClient
 
@@ -83,5 +84,13 @@ static NSString *_urlString;
     }];
 }
 
+- (void) didReceiveMessage:(NSDictionary *)message
+{
+    DDLogVerbose(@"MYMeteorClient.didReceiveMessage:\n%@",message);
+    //DDLogVerbose(@"Collections: %@",[self collections]);
+    DDLogVerbose(@"Subscriptions: %@",_subscriptions);
+
+    [super didReceiveMessage:message];
+}
 
 @end

@@ -18,6 +18,8 @@ Pod::Spec.new do |spec|
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
         core.ios.dependency 'ObjectiveDDP', '~>0.1.3'
+        core.ios.dependency 'MyiOSHelpers/Logic/Common/LumberjackHelpers'
+        core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"'
     end
     
     spec.subspec "UIKit" do |uikit|

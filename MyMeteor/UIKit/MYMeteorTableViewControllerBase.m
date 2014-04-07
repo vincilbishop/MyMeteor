@@ -42,18 +42,26 @@
 
 - (void) configureForCollection:(NSString *)collectionName prameters:(NSArray*)parameters
 {
-    self.collectionName = [collectionName lowercaseString];
-    [[MYMeteorClient sharedClient] addSubscription:self.collectionName withParameters:parameters];
+    [self configureForCollection:collectionName prameters:parameters subscribe:NO];
+}
+
+- (void) configureForCollection:(NSString *)collectionName prameters:(NSArray*)parameters subscribe:(BOOL)subscribe
+{
+    self.collectionName = collectionName;
+    
+    if (subscribe) {
+        [[MYMeteorClient sharedClient] addSubscription:self.collectionName withParameters:parameters];
+    }
     
     NSString *notificationName = nil;
     notificationName = [NSString stringWithFormat:@"%@_added",self.collectionName];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAdded:) name:nil object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAdded:) name:notificationName object:nil];
     
     notificationName = [NSString stringWithFormat:@"%@_removed",self.collectionName];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRemoved:) name:nil object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRemoved:) name:notificationName object:nil];
     
     notificationName = [NSString stringWithFormat:@"%@_changed",self.collectionName];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleChanged:) name:nil object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleChanged:) name:notificationName object:nil];
     
     [self reloadTableViewCollection];
 }
@@ -84,13 +92,14 @@
 {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self reloadWithArray:[MYMeteorClient sharedClient].collections[self.collectionName]];
+        
+        NSLog(@"Collection: %@",[MYMeteorClient sharedClient].collections[self.collectionName]);
     }];
 }
 
-#pragma mark - UITableViewDataSource -
-
-
-#pragma mark - UITableViewDelgate -
-
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

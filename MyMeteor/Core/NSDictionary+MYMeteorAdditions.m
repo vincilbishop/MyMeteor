@@ -16,10 +16,25 @@
     return [loginResult isEqualToString:@"success"];
 }
 
-- (id) result
+- (NSDictionary*) result
 {
-    NSString *result = [self valueForKey:@"result"];
-    return result;
+    id result = [self valueForKey:@"result"];
+    if ([result isKindOfClass:[NSDictionary class]]) {
+        return result;
+    } else {
+        return nil;
+    }
 }
+
+- (NSArray*) resultArray
+{
+    id result = [self valueForKey:@"result"];
+    if ([result isKindOfClass:[NSArray class]]) {
+        return result;
+    } else {
+        return nil;
+    }
+}
+
 
 @end

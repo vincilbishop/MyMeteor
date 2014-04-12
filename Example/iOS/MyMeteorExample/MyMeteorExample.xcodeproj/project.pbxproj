@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		548EAAFE0850496EA84D4BC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4443EFBDB44560A7D7249F /* libPods.a */; };
+		FA40A66518F8A4F6001AC311 /* MELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40A66418F8A4F6001AC311 /* MELoginViewController.m */; };
+		FAB5693E18F8A25900F4E389 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB5693D18F8A25900F4E389 /* Foundation.framework */; };
+		FAB5694018F8A25900F4E389 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB5693F18F8A25900F4E389 /* CoreGraphics.framework */; };
+		FAB5694218F8A25900F4E389 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB5694118F8A25900F4E389 /* UIKit.framework */; };
+		FAB5694818F8A25900F4E389 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB5694618F8A25900F4E389 /* InfoPlist.strings */; };
+		FAB5694A18F8A25900F4E389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB5694918F8A25900F4E389 /* main.m */; };
+		FAB5694E18F8A25900F4E389 /* MEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB5694D18F8A25900F4E389 /* MEAppDelegate.m */; };
+		FAB5695118F8A25900F4E389 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB5694F18F8A25900F4E389 /* Main_iPhone.storyboard */; };
+		FAB5695418F8A25900F4E389 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB5695218F8A25900F4E389 /* Main_iPad.storyboard */; };
+		FAB5695718F8A25900F4E389 /* MEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB5695618F8A25900F4E389 /* MEViewController.m */; };
+		FAB5695918F8A25900F4E389 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB5695818F8A25900F4E389 /* Images.xcassets */; };
+		FAB5696018F8A25900F4E389 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB5695F18F8A25900F4E389 /* XCTest.framework */; };
+		FAB5696118F8A25900F4E389 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB5693D18F8A25900F4E389 /* Foundation.framework */; };
+		FAB5696218F8A25900F4E389 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB5694118F8A25900F4E389 /* UIKit.framework */; };
+		FAB5696A18F8A25900F4E389 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB5696818F8A25900F4E389 /* InfoPlist.strings */; };
+		FAB5696C18F8A25900F4E389 /* MyMeteorExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB5696B18F8A25900F4E389 /* MyMeteorExampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAB5696318F8A25900F4E389 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAB5693218F8A25800F4E389 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAB5693918F8A25900F4E389;
+			remoteInfo = MyMeteorExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6C4443EFBDB44560A7D7249F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE44BC0D86C340FEBF29D608 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FA40A66318F8A4EA001AC311 /* MELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MELoginViewController.h; sourceTree = "<group>"; };
+		FA40A66418F8A4F6001AC311 /* MELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MELoginViewController.m; sourceTree = "<group>"; };
+		FAB5693A18F8A25900F4E389 /* MyMeteorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeteorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB5693D18F8A25900F4E389 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FAB5693F18F8A25900F4E389 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FAB5694118F8A25900F4E389 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FAB5694518F8A25900F4E389 /* MyMeteorExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyMeteorExample-Info.plist"; sourceTree = "<group>"; };
+		FAB5694718F8A25900F4E389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FAB5694918F8A25900F4E389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FAB5694B18F8A25900F4E389 /* MyMeteorExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMeteorExample-Prefix.pch"; sourceTree = "<group>"; };
+		FAB5694C18F8A25900F4E389 /* MEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEAppDelegate.h; sourceTree = "<group>"; };
+		FAB5694D18F8A25900F4E389 /* MEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEAppDelegate.m; sourceTree = "<group>"; };
+		FAB5695018F8A25900F4E389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		FAB5695318F8A25900F4E389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		FAB5695518F8A25900F4E389 /* MEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEViewController.h; sourceTree = "<group>"; };
+		FAB5695618F8A25900F4E389 /* MEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEViewController.m; sourceTree = "<group>"; };
+		FAB5695818F8A25900F4E389 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FAB5695E18F8A25900F4E389 /* MyMeteorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMeteorExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB5695F18F8A25900F4E389 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FAB5696718F8A25900F4E389 /* MyMeteorExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyMeteorExampleTests-Info.plist"; sourceTree = "<group>"; };
+		FAB5696918F8A25900F4E389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FAB5696B18F8A25900F4E389 /* MyMeteorExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMeteorExampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAB5693718F8A25900F4E389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB5694018F8A25900F4E389 /* CoreGraphics.framework in Frameworks */,
+				FAB5694218F8A25900F4E389 /* UIKit.framework in Frameworks */,
+				FAB5693E18F8A25900F4E389 /* Foundation.framework in Frameworks */,
+				548EAAFE0850496EA84D4BC3 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5695B18F8A25900F4E389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB5696018F8A25900F4E389 /* XCTest.framework in Frameworks */,
+				FAB5696218F8A25900F4E389 /* UIKit.framework in Frameworks */,
+				FAB5696118F8A25900F4E389 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAB5693118F8A25800F4E389 = {
+			isa = PBXGroup;
+			children = (
+				FAB5694318F8A25900F4E389 /* MyMeteorExample */,
+				FAB5696518F8A25900F4E389 /* MyMeteorExampleTests */,
+				FAB5693C18F8A25900F4E389 /* Frameworks */,
+				FAB5693B18F8A25900F4E389 /* Products */,
+				EE44BC0D86C340FEBF29D608 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FAB5693B18F8A25900F4E389 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5693A18F8A25900F4E389 /* MyMeteorExample.app */,
+				FAB5695E18F8A25900F4E389 /* MyMeteorExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAB5693C18F8A25900F4E389 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5693D18F8A25900F4E389 /* Foundation.framework */,
+				FAB5693F18F8A25900F4E389 /* CoreGraphics.framework */,
+				FAB5694118F8A25900F4E389 /* UIKit.framework */,
+				FAB5695F18F8A25900F4E389 /* XCTest.framework */,
+				6C4443EFBDB44560A7D7249F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAB5694318F8A25900F4E389 /* MyMeteorExample */ = {
+			isa = PBXGroup;
+			children = (
+				FA40A66318F8A4EA001AC311 /* MELoginViewController.h */,
+				FA40A66418F8A4F6001AC311 /* MELoginViewController.m */,
+				FAB5694C18F8A25900F4E389 /* MEAppDelegate.h */,
+				FAB5694D18F8A25900F4E389 /* MEAppDelegate.m */,
+				FAB5694F18F8A25900F4E389 /* Main_iPhone.storyboard */,
+				FAB5695218F8A25900F4E389 /* Main_iPad.storyboard */,
+				FAB5695518F8A25900F4E389 /* MEViewController.h */,
+				FAB5695618F8A25900F4E389 /* MEViewController.m */,
+				FAB5695818F8A25900F4E389 /* Images.xcassets */,
+				FAB5694418F8A25900F4E389 /* Supporting Files */,
+			);
+			path = MyMeteorExample;
+			sourceTree = "<group>";
+		};
+		FAB5694418F8A25900F4E389 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5694518F8A25900F4E389 /* MyMeteorExample-Info.plist */,
+				FAB5694618F8A25900F4E389 /* InfoPlist.strings */,
+				FAB5694918F8A25900F4E389 /* main.m */,
+				FAB5694B18F8A25900F4E389 /* MyMeteorExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAB5696518F8A25900F4E389 /* MyMeteorExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5696B18F8A25900F4E389 /* MyMeteorExampleTests.m */,
+				FAB5696618F8A25900F4E389 /* Supporting Files */,
+			);
+			path = MyMeteorExampleTests;
+			sourceTree = "<group>";
+		};
+		FAB5696618F8A25900F4E389 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5696718F8A25900F4E389 /* MyMeteorExampleTests-Info.plist */,
+				FAB5696818F8A25900F4E389 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAB5693918F8A25900F4E389 /* MyMeteorExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB5696F18F8A25900F4E389 /* Build configuration list for PBXNativeTarget "MyMeteorExample" */;
+			buildPhases = (
+				0F36B93E0B4149F7817DC24E /* Check Pods Manifest.lock */,
+				FAB5693618F8A25900F4E389 /* Sources */,
+				FAB5693718F8A25900F4E389 /* Frameworks */,
+				FAB5693818F8A25900F4E389 /* Resources */,
+				36D8AAF296834C97BE5AB6E6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyMeteorExample;
+			productName = MyMeteorExample;
+			productReference = FAB5693A18F8A25900F4E389 /* MyMeteorExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAB5695D18F8A25900F4E389 /* MyMeteorExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB5697218F8A25900F4E389 /* Build configuration list for PBXNativeTarget "MyMeteorExampleTests" */;
+			buildPhases = (
+				FAB5695A18F8A25900F4E389 /* Sources */,
+				FAB5695B18F8A25900F4E389 /* Frameworks */,
+				FAB5695C18F8A25900F4E389 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAB5696418F8A25900F4E389 /* PBXTargetDependency */,
+			);
+			name = MyMeteorExampleTests;
+			productName = MyMeteorExampleTests;
+			productReference = FAB5695E18F8A25900F4E389 /* MyMeteorExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAB5693218F8A25800F4E389 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ME;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Premier Mobile Systems";
+				TargetAttributes = {
+					FAB5695D18F8A25900F4E389 = {
+						TestTargetID = FAB5693918F8A25900F4E389;
+					};
+				};
+			};
+			buildConfigurationList = FAB5693518F8A25800F4E389 /* Build configuration list for PBXProject "MyMeteorExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAB5693118F8A25800F4E389;
+			productRefGroup = FAB5693B18F8A25900F4E389 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAB5693918F8A25900F4E389 /* MyMeteorExample */,
+				FAB5695D18F8A25900F4E389 /* MyMeteorExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAB5693818F8A25900F4E389 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB5695418F8A25900F4E389 /* Main_iPad.storyboard in Resources */,
+				FAB5695918F8A25900F4E389 /* Images.xcassets in Resources */,
+				FAB5695118F8A25900F4E389 /* Main_iPhone.storyboard in Resources */,
+				FAB5694818F8A25900F4E389 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5695C18F8A25900F4E389 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB5696A18F8A25900F4E389 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F36B93E0B4149F7817DC24E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36D8AAF296834C97BE5AB6E6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAB5693618F8A25900F4E389 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA40A66518F8A4F6001AC311 /* MELoginViewController.m in Sources */,
+				FAB5694E18F8A25900F4E389 /* MEAppDelegate.m in Sources */,
+				FAB5695718F8A25900F4E389 /* MEViewController.m in Sources */,
+				FAB5694A18F8A25900F4E389 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5695A18F8A25900F4E389 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB5696C18F8A25900F4E389 /* MyMeteorExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAB5696418F8A25900F4E389 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAB5693918F8A25900F4E389 /* MyMeteorExample */;
+			targetProxy = FAB5696318F8A25900F4E389 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAB5694618F8A25900F4E389 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB5694718F8A25900F4E389 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FAB5694F18F8A25900F4E389 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB5695018F8A25900F4E389 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		FAB5695218F8A25900F4E389 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB5695318F8A25900F4E389 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		FAB5696818F8A25900F4E389 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB5696918F8A25900F4E389 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAB5696D18F8A25900F4E389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAB5696E18F8A25900F4E389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAB5697018F8A25900F4E389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE44BC0D86C340FEBF29D608 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMeteorExample/MyMeteorExample-Prefix.pch";
+				INFOPLIST_FILE = "MyMeteorExample/MyMeteorExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FAB5697118F8A25900F4E389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE44BC0D86C340FEBF29D608 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMeteorExample/MyMeteorExample-Prefix.pch";
+				INFOPLIST_FILE = "MyMeteorExample/MyMeteorExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FAB5697318F8A25900F4E389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyMeteorExample.app/MyMeteorExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMeteorExample/MyMeteorExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MyMeteorExampleTests/MyMeteorExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FAB5697418F8A25900F4E389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyMeteorExample.app/MyMeteorExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMeteorExample/MyMeteorExample-Prefix.pch";
+				INFOPLIST_FILE = "MyMeteorExampleTests/MyMeteorExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAB5693518F8A25800F4E389 /* Build configuration list for PBXProject "MyMeteorExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB5696D18F8A25900F4E389 /* Debug */,
+				FAB5696E18F8A25900F4E389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB5696F18F8A25900F4E389 /* Build configuration list for PBXNativeTarget "MyMeteorExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB5697018F8A25900F4E389 /* Debug */,
+				FAB5697118F8A25900F4E389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB5697218F8A25900F4E389 /* Build configuration list for PBXNativeTarget "MyMeteorExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB5697318F8A25900F4E389 /* Debug */,
+				FAB5697418F8A25900F4E389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAB5693218F8A25800F4E389 /* Project object */;
+}

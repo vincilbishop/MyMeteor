@@ -1,0 +1,5 @@
+platform :ios, '7.0'
+inhibit_all_warnings!
+
+pod 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', :git => 'https://github.com/premosystems/MyiOSHelpers'
+pod 'MyMeteor', :git => 'https://github.com/premosystems/MyMeteor'

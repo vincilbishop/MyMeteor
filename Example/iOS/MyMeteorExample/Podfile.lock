@@ -1,0 +1,51 @@
+PODS:
+  - CocoaLumberjack (1.8.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.8.1)
+  - CocoaLumberjack/Extensions (1.8.1):
+    - CocoaLumberjack/Core
+  - DCKeyValueObjectMapping (1.4)
+  - LumberjackPrettyClassInformation (1.0.0):
+    - CocoaLumberjack (~> 1.8.0)
+  - MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack (0.0.2):
+    - CocoaLumberjack (~> 1.8.1)
+    - LumberjackPrettyClassInformation (~> 1.0.0)
+  - MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping (0.0.2):
+    - DCKeyValueObjectMapping (~> 1.4.0)
+  - MyiOSHelpers/View/Screens/ModelObjectTableViewControllerBase (0.0.2):
+    - MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping
+    - MyiOSHelpers/View/Screens/TableViewControllerBase
+  - MyiOSHelpers/View/Screens/TableViewControllerBase (0.0.2)
+  - MyMeteor (0.0.2):
+    - MyMeteor/Core
+    - MyMeteor/UIKit
+  - MyMeteor/Core (0.0.2):
+    - MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack (~> 0.0.2)
+    - ObjectiveDDP (~> 0.1.3)
+  - MyMeteor/UIKit (0.0.2):
+    - MyiOSHelpers/View/Screens/ModelObjectTableViewControllerBase (~> 0.0.2)
+    - MyMeteor/Core
+  - ObjectiveDDP (0.1.3):
+    - SocketRocket (= 0.3.1-beta2)
+  - SocketRocket (0.3.1-beta2)
+
+DEPENDENCIES:
+  - MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack (from `https://github.com/premosystems/MyiOSHelpers`)
+  - MyMeteor (from `https://github.com/premosystems/MyMeteor`)
+
+EXTERNAL SOURCES:
+  MyiOSHelpers:
+    :git: https://github.com/premosystems/MyiOSHelpers
+  MyMeteor:
+    :git: https://github.com/premosystems/MyMeteor
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
+  DCKeyValueObjectMapping: 39adaf0a54ff6368a22d9221db60f0696d81ad7b
+  LumberjackPrettyClassInformation: 5eddd71b19751c0722afd26f9330a738969bfc19
+  MyiOSHelpers: 4f2eda40dc8871430da4944ee9c695b0dbbbf23a
+  MyMeteor: acc5960db95abc5bf6a3d21b8a6a2144cec32580
+  ObjectiveDDP: e08b82f13b1827406970e3dac815b7cd3c0b0148
+  SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
+
+COCOAPODS: 0.31.1

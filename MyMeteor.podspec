@@ -27,5 +27,12 @@ Pod::Spec.new do |spec|
         uikit.ios.dependency 'MyMeteor/Core'
         uikit.ios.dependency 'MyiOSHelpers/View/Screens/ModelObjectTableViewControllerBase', '~>0.0.2'
     end
+    
+    spec.subspec "Model" do |model|
+        model.source_files = 'MyMeteor/Model/*.{h,m}'
+        model.ios.dependency 'MyMeteor/Core'
+        model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.2'
+        model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.2'
+    end
 	
 end # spec

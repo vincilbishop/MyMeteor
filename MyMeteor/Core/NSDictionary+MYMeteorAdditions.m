@@ -8,6 +8,7 @@
 
 #import "NSDictionary+MYMeteorAdditions.h"
 
+
 @implementation NSDictionary (MYMeteorAdditions)
 
 - (BOOL) logonSuccess

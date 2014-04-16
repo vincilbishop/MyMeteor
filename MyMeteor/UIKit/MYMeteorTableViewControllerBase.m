@@ -93,7 +93,7 @@
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self reloadWithArray:[MYMeteorClient sharedClient].collections[self.collectionName]];
         
-        NSLog(@"Collection: %@",[MYMeteorClient sharedClient].collections[self.collectionName]);
+        DDLogVerbose(@"Collection: %@",[MYMeteorClient sharedClient].collections[self.collectionName]);
     }];
 }
 

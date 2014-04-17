@@ -8,10 +8,15 @@
 
 #import "MYMongoModelObjectBase.h"
 #import "MyiOSLogicBlocks.h"
+#import "MYMeteorableModelObject.h"
 
-@interface MYMeteorModelObjectBase : MYMongoModelObjectBase
+@interface MYMeteorModelObjectBase : MYMongoModelObjectBase<MYMeteorableModelObject>
 
-- (void) meteorSaveWithCompletion:(MYCompletionBlock)completionBlock;
++ (NSArray*) collectionObjects;
++ (BOOL) isRegistered;
++ (void) registerModelClass;
+
+- (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock;
 - (void) meteorDeleteWithCompletion:(MYCompletionBlock)completionBlock;
 
 @end

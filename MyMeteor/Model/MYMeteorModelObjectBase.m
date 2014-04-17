@@ -7,10 +7,34 @@
 //
 
 #import "MYMeteorModelObjectBase.h"
+#import "MYMeteorClient+ModelAdditions.h"
+#import "MYMeteorableModelObject.h"
 
 @implementation MYMeteorModelObjectBase
 
-- (void) meteorSaveWithCompletion:(MYCompletionBlock)completionBlock
+#pragma mark - Model Helpers -
+
++ (NSArray*) collectionObjects
+{
+    if (![self isRegistered]) {
+        [self registerModelClass];
+    }
+    return [[MYMeteorClient sharedClient] collectionForClass:self];
+}
+
++ (BOOL) isRegistered
+{
+    return [[MYMeteorClient sharedClient] isRegistered:self];
+}
+
++ (void) registerModelClass
+{
+    [[MYMeteorClient sharedClient] registerModelClass:self];
+}
+
+#pragma mark - CRUD -
+
+- (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock
 {
     // TODO: Add generic code here that will map the current model object
     // with a collection, and save to the server

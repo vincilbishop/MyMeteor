@@ -11,5 +11,6 @@
 
 #endif
 
+#import "MYMeteorClient+ModelAdditions.h"
 #import "MYMeteorModelObjectBase.h"
 #import "NSDictionary+MyAdditions_ObjToDictionary.h"

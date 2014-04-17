@@ -44,27 +44,8 @@ static NSString *_urlString;
     return self;
 }
 
-/*
-- (void)logonWithUsername:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback {
-    
-    [super logonWithUsername:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
-        
-        if ([response logonSuccess]) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:kMyMeteor_LogonSuccess_Notification object:response];
-            
-        } else {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:kMyMeteor_LogonFailure_Notification object:error];
-        }
-        
-        if (responseCallback) {
-            responseCallback(response,error);
-        }
-    }];
-    
-}
-*/
+#pragma mark - Login -
+
 - (void)logonWithUserParameters:(NSDictionary *)userParameters username:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback
 {
     [super logonWithUserParameters:userParameters username:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
@@ -83,6 +64,8 @@ static NSString *_urlString;
         }        
     }];
 }
+
+#pragma mark - Messages -
 
 - (void) didReceiveMessage:(NSDictionary *)message
 {

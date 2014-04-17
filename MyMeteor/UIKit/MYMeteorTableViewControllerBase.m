@@ -40,9 +40,9 @@
 
 #pragma mark - Subscription Methods -
 
-- (void) configureForCollection:(NSString *)collectionName prameters:(NSArray*)parameters
+- (void) configureForCollection:(NSString *)collectionName
 {
-    [self configureForCollection:collectionName prameters:parameters subscribe:NO];
+    [self configureForCollection:collectionName prameters:nil subscribe:NO];
 }
 
 - (void) configureForCollection:(NSString *)collectionName prameters:(NSArray*)parameters subscribe:(BOOL)subscribe

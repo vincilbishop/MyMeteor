@@ -30,13 +30,19 @@ static NSMutableDictionary *_collectionClasses;
     }
 }
 
+- (NSString*) collectionStringForClass:(Class<MYMeteorableModelObject>)modelClass
+{
+    NSString *collectionName = _collectionClasses[NSStringFromClass(modelClass)];
+    return collectionName;
+}
+
 - (BOOL) isRegistered:(Class<MYMeteorableModelObject>)modelClass
 {
     if (!_collectionClasses) {
         _collectionClasses = [NSMutableDictionary new];
     }
     
-    NSString *collectionName = _collectionClasses[NSStringFromClass(modelClass)];
+    NSString *collectionName = [self collectionStringForClass:modelClass];
     BOOL isRegistered = collectionName != nil;
     return isRegistered;
 }

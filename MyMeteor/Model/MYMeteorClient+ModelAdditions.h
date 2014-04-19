@@ -12,11 +12,11 @@
 
 typedef void (^MYMeteorObjectBlock)(NSArray *objects);
 
-
-
 @interface MYMeteorClient (ModelAdditions)
 
 - (NSArray*) collectionForClass:(Class<MYMeteorableModelObject>)modelClass;
+
+- (NSString*) collectionStringForClass:(Class<MYMeteorableModelObject>)modelClass;
 
 - (BOOL) isRegistered:(Class<MYMeteorableModelObject>)modelClass;
 

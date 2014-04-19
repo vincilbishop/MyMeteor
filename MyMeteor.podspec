@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-
+    
 	spec.name		= 'MyMeteor'
 	spec.version	= '0.0.2'
 	spec.homepage   = "http://github.com/premosystems/MyMeteor"
@@ -8,13 +8,13 @@ Pod::Spec.new do |spec|
 	spec.summary	= 'Helper classes for implementing ObjectiveDDP as a Meteor client for iOS.'
 	spec.source	= { :git => 'https://github.com/premosystems/MyMeteor.git', :tag => spec.version.to_s }
 	spec.requires_arc = true
-
+    
 	spec.ios.deployment_target = '7.0'
-
+    
 	spec.resource = 'MyMeteor.podspec'
-
+    
 	spec.source_files = 'MyMeteor/*.{h,m}'
-
+    
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
         core.ios.dependency 'ObjectiveDDP', '~>0.1.3'
@@ -33,6 +33,11 @@ Pod::Spec.new do |spec|
         model.ios.dependency 'MyMeteor/Core'
         model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.2'
         model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.2'
+    end
+    
+    spec.subspec "Controller" do |controller|
+        controller.source_files = 'MyMeteor/Controller/*.{h,m}'
+        controller.ios.dependency 'MyMeteor/Model'
     end
 	
 end # spec

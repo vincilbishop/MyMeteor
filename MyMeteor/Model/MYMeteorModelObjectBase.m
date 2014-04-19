@@ -22,6 +22,11 @@
     return [[MYMeteorClient sharedClient] collectionForClass:self];
 }
 
++ (NSString*) collectionString
+{
+    return [[MYMeteorClient sharedClient] collectionStringForClass:self];
+}
+
 + (BOOL) isRegistered
 {
     return [[MYMeteorClient sharedClient] isRegistered:self];

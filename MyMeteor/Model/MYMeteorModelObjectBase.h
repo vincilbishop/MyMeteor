@@ -13,6 +13,7 @@
 @interface MYMeteorModelObjectBase : MYMongoModelObjectBase<MYMeteorableModelObject>
 
 + (NSArray*) collectionObjects;
++ (NSString*) collectionString;
 + (BOOL) isRegistered;
 + (void) registerModelClass;
 

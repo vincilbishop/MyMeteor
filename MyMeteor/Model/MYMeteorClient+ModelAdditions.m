@@ -15,10 +15,7 @@ static NSMutableDictionary *_collectionClasses;
 
 - (NSArray*) collectionForClass:(Class<MYMeteorableModelObject>)modelClass
 {
-    NSString *classString = NSStringFromClass(modelClass);
-    NSString *collectionString = [_collectionClasses objectForKey:classString];
-    
-    NSAssert(collectionString,@"Must first register model class using: - (void) registerModelClass:(Class<MYMeteorableModelObject>)modelClass forCollection:(NSString*)collectionString");
+    NSString *collectionString = [self collectionStringForClass:modelClass];
     
     if (collectionString) {
         NSArray *objects = [[modelClass parser] parseArray:[MYMeteorClient sharedClient].collections[collectionString]];
@@ -32,8 +29,14 @@ static NSMutableDictionary *_collectionClasses;
 
 - (NSString*) collectionStringForClass:(Class<MYMeteorableModelObject>)modelClass
 {
-    NSString *collectionName = _collectionClasses[NSStringFromClass(modelClass)];
-    return collectionName;
+    NSString *collectionString = _collectionClasses[NSStringFromClass(modelClass)];
+    
+    if (!collectionString) {
+        [self registerModelClass:modelClass];
+        collectionString = [modelClass collectionString];
+    }
+    
+    return collectionString;
 }
 
 - (BOOL) isRegistered:(Class<MYMeteorableModelObject>)modelClass

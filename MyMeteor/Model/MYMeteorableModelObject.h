@@ -10,4 +10,12 @@
 
 @protocol MYMeteorableModelObject <NSObject,MYParseableModelObject>
 
++ (NSArray*) collectionObjects;
++ (NSString*) collectionString;
++ (BOOL) isRegistered;
++ (void) registerModelClass;
+
+- (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock;
+- (void) meteorDeleteWithCompletion:(MYCompletionBlock)completionBlock;
+
 @end

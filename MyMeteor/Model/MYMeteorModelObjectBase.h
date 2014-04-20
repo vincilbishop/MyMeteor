@@ -17,6 +17,8 @@
 + (BOOL) isRegistered;
 + (void) registerModelClass;
 
++ (MYMeteorModelObjectBase*) objectForId:(NSString*)_id;
+
 - (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock;
 - (void) meteorDeleteWithCompletion:(MYCompletionBlock)completionBlock;
 

@@ -22,7 +22,7 @@
         self.collectionName = [[MYMeteorClient sharedClient] collectionStringForClass:modelClass];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCollectionUpdated:) name:[NSString stringWithFormat:@"%@_added",self.collectionName] object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCollectionUpdated:) name:[NSString stringWithFormat:@"%@_updated",self.collectionName] object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCollectionUpdatedd:) name:[NSString stringWithFormat:@"%@_removed",self.collectionName] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCollectionUpdated:) name:[NSString stringWithFormat:@"%@_removed",self.collectionName] object:nil];
         
     }
     

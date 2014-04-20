@@ -13,4 +13,6 @@
 
 #import "MYMeteorClient+ModelAdditions.h"
 #import "MYMeteorModelObjectBase.h"
+#import "MYMeteorUserObjectBase.h"
+
 #import "NSDictionary+MyAdditions_ObjToDictionary.h"

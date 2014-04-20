@@ -33,11 +33,25 @@ Pod::Spec.new do |spec|
         model.ios.dependency 'MyMeteor/Core'
         model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.2'
         model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.2'
+        model.ios.dependency 'Underscore.m', '~>0.2.1'
+        model.prefix_header_contents = '#import "Underscore.h"', '#ifndef _', '#define _ Underscore', '#endif'
     end
     
     spec.subspec "Controller" do |controller|
         controller.source_files = 'MyMeteor/Controller/*.{h,m}'
         controller.ios.dependency 'MyMeteor/Model'
+    end
+    
+    spec.subspec "Helpers" do |helpers|
+        helpers.source_files = 'MyMeteor/Helpers/*.{h,m}'
+        helpers.ios.dependency 'MyMeteor/Core'
+        
+        helpers.subspec "AutoLogon" do |autologon|
+            autologon.source_files = 'MyMeteor/Helpers/AutoLogon/*.{h,m}'
+            autologon.ios.dependency 'MyMeteor/Core'
+            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSString', '~>0.0.2'
+            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSError', '~>0.0.2'
+        end
     end
 	
 end # spec

@@ -13,5 +13,6 @@
 
 #import "MyMeteorController.h"
 #import "MyMeteorCore.h"
+#import "MyMeteorHelpers.h"
 #import "MyMeteorModel.h"
 #import "MyMeteorUIKit.h"

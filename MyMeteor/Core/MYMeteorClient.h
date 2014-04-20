@@ -11,6 +11,7 @@
 #import "ObjectiveDDP.h"
 #import "MeteorClient.h"
 #import "NSDictionary+MYMeteorAdditions.h"
+#import "NSError+MYMeteorAdditions.h"
 
 #define kMyMeteor_LogonSuccess_Notification @"kMyMeteor_LogonSuccess_Notification"
 #define kMyMeteor_LogonFailure_Notification @"kMyMeteor_LogonFailure_Notification"

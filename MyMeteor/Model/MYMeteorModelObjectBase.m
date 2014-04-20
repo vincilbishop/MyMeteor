@@ -37,6 +37,17 @@
     [[MYMeteorClient sharedClient] registerModelClass:self];
 }
 
+#pragma mark - Convenience Methods -
+
++ (MYMeteorModelObjectBase*) objectForId:(NSString*)_id
+{
+    id object = _.find([self collectionObjects], ^BOOL (MYMeteorModelObjectBase *candidate) {
+        return [candidate._id isEqualToString:_id];
+    });
+    
+    return object;
+}
+
 #pragma mark - CRUD -
 
 - (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock

@@ -37,5 +37,11 @@
     }
 }
 
+- (BOOL) responseSuccess
+{
+    id result = [self valueForKey:@"result"];
+    return result != nil;
+}
+
 
 @end

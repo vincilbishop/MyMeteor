@@ -13,5 +13,6 @@
 - (BOOL) logonSuccess;
 - (NSDictionary*) result;
 - (NSArray*) resultArray;
+- (BOOL) responseSuccess;
 
 @end

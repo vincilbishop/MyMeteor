@@ -15,17 +15,12 @@ static NSMutableDictionary *_collectionClasses;
 
 - (NSArray*) collectionForClass:(Class<MYMeteorableModelObject>)modelClass
 {
-    NSString *collectionString = [self collectionStringForClass:modelClass];
+    NSArray *objects = [[modelClass parser] parseArray:[MYMeteorClient sharedClient].collections[[modelClass collectionString]]];
     
-    if (collectionString) {
-        NSArray *objects = [[modelClass parser] parseArray:[MYMeteorClient sharedClient].collections[collectionString]];
-        
-        return objects;
-    
-    } else {
-        return nil;
-    }
+    return objects;
+
 }
+
 
 - (NSString*) collectionStringForClass:(Class<MYMeteorableModelObject>)modelClass
 {
@@ -38,6 +33,7 @@ static NSMutableDictionary *_collectionClasses;
     
     return collectionString;
 }
+
 
 - (BOOL) isRegistered:(Class<MYMeteorableModelObject>)modelClass
 {

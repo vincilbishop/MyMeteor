@@ -15,8 +15,8 @@
 @property (nonatomic,strong) NSArray *emails;
 @property (nonatomic,strong) NSString *username;
 
-- (MYMeteorUserEmail*) email;
-- (NSString*) emailAddress;
++ (MYMeteorUserObjectBase*) currentMeteorUser;
+- (NSString*) email;
 - (MYMeteorUserEmail*) emailAtIndex:(NSUInteger)index;
 
 @end

@@ -39,6 +39,17 @@
         [[MYMeteorClient sharedClient] addSubscription:self.collectionName withParameters:parameters];
     }
     
+    if (!self.dontSubscribeToMeteorNotifications) {
+        [self subscribeToNotifications];
+    }
+    
+    [self reloadTableViewCollection];
+}
+
+- (void) subscribeToNotifications
+{
+    self.dontSubscribeToMeteorNotifications = NO;
+    
     NSString *notificationName = nil;
     notificationName = [NSString stringWithFormat:@"%@_added",self.collectionName];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAdded:) name:notificationName object:nil];
@@ -48,9 +59,23 @@
     
     notificationName = [NSString stringWithFormat:@"%@_changed",self.collectionName];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleChanged:) name:notificationName object:nil];
-    
-    [self reloadTableViewCollection];
 }
+
+- (void) unSubscribeFromNotifications
+{
+    self.dontSubscribeToMeteorNotifications = YES;
+    
+    NSString *notificationName = nil;
+    notificationName = [NSString stringWithFormat:@"%@_added",self.collectionName];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:notificationName object:nil];
+    
+    notificationName = [NSString stringWithFormat:@"%@_removed",self.collectionName];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:notificationName object:nil];
+    
+    notificationName = [NSString stringWithFormat:@"%@_changed",self.collectionName];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:notificationName object:nil];
+}
+
 
 - (void) handleCollectionUpdated:(NSNotification*)notification
 {
@@ -76,12 +101,9 @@
 
 - (void) reloadTableViewCollection
 {
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        
-        DDLogVerbose(@"Reloading Collection Named %@: %@",self.collectionName,[MYMeteorClient sharedClient].collections[self.collectionName]);
-        
-        [self reloadWithArray:[MYMeteorClient sharedClient].collections[self.collectionName]];
-    }];
+    DDLogVerbose(@"Reloading Collection Named %@: %@",self.collectionName,[MYMeteorClient sharedClient].collections[self.collectionName]);
+    
+    [self reloadWithDictionaries:[MYMeteorClient sharedClient].collections[self.collectionName]];
 }
 
 - (void) dealloc

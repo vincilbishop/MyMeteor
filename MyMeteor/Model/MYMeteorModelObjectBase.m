@@ -42,11 +42,31 @@
 + (MYMeteorModelObjectBase*) objectForId:(NSString*)_id
 {
     id object = _.find([self collectionObjects], ^BOOL (MYMeteorModelObjectBase *candidate) {
-        return [candidate._id isEqualToString:_id];
+        
+        BOOL result = [candidate._id isEqualToString:_id];
+        return result;
     });
     
     return object;
 }
+
+
++ (NSArray*) objectsForIds:(NSArray*)ids
+{
+    NSMutableArray *objects = [[NSMutableArray alloc] init];
+    
+    [ids enumerateObjectsUsingBlock:^(NSString *_id, NSUInteger idx, BOOL *stop) {
+        
+        id object = [self objectForId:_id];
+        
+        if (object) {
+            [objects addObject:object];
+        }
+    }];
+    
+    return objects;
+}
+
 
 #pragma mark - CRUD -
 

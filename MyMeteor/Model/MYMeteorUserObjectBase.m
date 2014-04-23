@@ -8,21 +8,20 @@
 
 #import "MYMeteorUserObjectBase.h"
 #import "MYMeteorUserEmail.h"
+#import "MYMeteorClient.h"
 
 @implementation MYMeteorUserObjectBase
 
 #pragma mark - KeyValueObjectMapping -
 
-+ (DCKeyValueObjectMapping*) parser
++ (DCParserConfiguration*) configuration
 {
     DCArrayMapping *mapper = [DCArrayMapping mapperForClassElements:[MYMeteorUserEmail class] forAttribute:@"emails" onClass:self];
     
-    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    DCParserConfiguration *config = [super configuration];
     [config addArrayMapper:mapper];
     
-    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:self  andConfiguration:config];
-                                       
-    return parser;
+    return config;
 }
 
 #pragma mark - MYMeteorModelObjectBase Overrides
@@ -34,14 +33,18 @@
 
 #pragma mark - Convenience Methods -
 
-- (MYMeteorUserEmail*) email
++ (MYMeteorUserObjectBase*) currentMeteorUser
 {
-    return self.emails[0];
+    MYMeteorUserObjectBase *currentUser = [MYMeteorUserObjectBase objectForId:[[MYMeteorClient sharedClient] userId]];
+    
+    return currentUser;
 }
 
-- (NSString*) emailAddress
+- (NSString*) email
 {
-    return [self emailAtIndex:0].address;
+    MYMeteorUserEmail *meteorUserEmail = [self emailAtIndex:0];
+    NSString *email = meteorUserEmail.address;
+    return email;
 }
 
 - (MYMeteorUserEmail*) emailAtIndex:(NSUInteger)index

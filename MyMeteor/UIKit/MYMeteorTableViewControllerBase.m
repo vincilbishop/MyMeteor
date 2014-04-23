@@ -77,9 +77,10 @@
 - (void) reloadTableViewCollection
 {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self reloadWithArray:[MYMeteorClient sharedClient].collections[self.collectionName]];
         
-        DDLogVerbose(@"Collection: %@",[MYMeteorClient sharedClient].collections[self.collectionName]);
+        DDLogVerbose(@"Reloading Collection Named %@: %@",self.collectionName,[MYMeteorClient sharedClient].collections[self.collectionName]);
+        
+        [self reloadWithArray:[MYMeteorClient sharedClient].collections[self.collectionName]];
     }];
 }
 

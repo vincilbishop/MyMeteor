@@ -53,7 +53,12 @@ static NSMutableDictionary *_collectionClasses;
 - (void) registerModelClass:(Class<MYMeteorableModelObject>)modelClass
 {
     NSString *classString = NSStringFromClass(modelClass);
-    //NSRange range = NSMakeRange(2, classString.length - 1);
+    
+    // Have to make an exception because meteor does not follow our naming convention :(
+    //if ([classString isEqualToString:@"users"]) {
+        //classString = @"user";
+    //}
+    
     NSString *collectionName = [[classString lowercaseString] substringFromIndex:2];
     [self registerModelClass:modelClass forCollection:collectionName];
 }

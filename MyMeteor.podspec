@@ -18,15 +18,16 @@ Pod::Spec.new do |spec|
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
         core.ios.dependency 'ObjectiveDDP', '~>0.1.3'
-        core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack'
+        core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', '~>0.0.3'
         core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"'
     end
     
     spec.subspec "Model" do |model|
         model.source_files = 'MyMeteor/Model/*.{h,m}'
-        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/MongoDB', '~>0.0.2'
-        model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.2'
-        model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.2'
+        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping', '~>0.0.3'
+        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/MongoDB', '~>0.0.3'
+        model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.3'
+        model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.3'
         model.ios.dependency 'Underscore.m', '~>0.2.1'
         model.ios.dependency 'MyMeteor/Core'
         model.prefix_header_contents = '#import "MYMeteorModelObjectBase.h"', '#import "Underscore.h"', '#ifndef _', '#define _ Underscore', '#endif'
@@ -34,7 +35,7 @@ Pod::Spec.new do |spec|
     
     spec.subspec "UIKit" do |uikit|
         uikit.source_files = 'MyMeteor/UIKit/*.{h,m}'
-        uikit.ios.dependency 'MyiOSHelpers/View/Screens/ModelObjectTableViewControllerBase', '~>0.0.2'
+        uikit.ios.dependency 'MyiOSViewHelpers', '~>0.0.1'
         uikit.ios.dependency 'MyMeteor/Model'
     end
     
@@ -49,8 +50,8 @@ Pod::Spec.new do |spec|
         
         helpers.subspec "AutoLogon" do |autologon|
             autologon.source_files = 'MyMeteor/Helpers/AutoLogon/*.{h,m}'
-            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSString', '~>0.0.2'
-            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSError', '~>0.0.2'
+            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSString', '~>0.0.3'
+            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSError', '~>0.0.3'
             autologon.ios.dependency 'MyMeteor/Core'
         end
     end

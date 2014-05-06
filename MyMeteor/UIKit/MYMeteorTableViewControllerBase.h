@@ -15,10 +15,10 @@
 @property (nonatomic) BOOL dontSubscribeToMeteorNotifications;
 
 - (void) configureWithClass:(Class<MYMeteorableModelObject>)modelClass;
-- (void) configureForCollection:(NSString *)collectionName;
-- (void) configureForCollection:(NSString *)collectionName prameters:(NSArray*)parameters subscribe:(BOOL)subscribe;
+- (void) configureSection:(NSUInteger)section withClass:(Class<MYMeteorableModelObject>)modelClass;
 
 - (void) reloadTableViewCollection;
+- (void) reloadTableViewCollectionInSection:(NSUInteger)section;
 - (void) subscribeToNotifications;
 - (void) unSubscribeFromNotifications;
 

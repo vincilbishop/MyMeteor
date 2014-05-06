@@ -13,6 +13,7 @@
 
 @property (nonatomic,strong) NSDate *createdAt;
 @property (nonatomic,strong) NSArray *emails;
+@property (nonatomic,strong) NSDictionary *profileDictionary;
 @property (nonatomic,strong) NSString *username;
 
 + (MYMeteorUserObjectBase*) currentMeteorUser;

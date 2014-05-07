@@ -31,7 +31,7 @@
 
 - (void) handleCollectionUpdated:(NSNotification*)notification
 {
-    DDLogVerbose(@"Collection:%@ Updated:%@:%@",self.collectionName,notification.object,notification.userInfo);
+    //DDLogVerbose(@"Collection:%@ Updated:%@:%@",self.collectionName,notification.object,notification.userInfo);
 }
 
 @end

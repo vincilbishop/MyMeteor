@@ -69,9 +69,9 @@ static NSString *_urlString;
 
 - (void) didReceiveMessage:(NSDictionary *)message
 {
-    DDLogVerbose(@"MYMeteorClient.didReceiveMessage:\n%@",message);
+    //DDLogVerbose(@"MYMeteorClient.didReceiveMessage:\n%@",message);
     //DDLogVerbose(@"Collections: %@",[self collections]);
-    DDLogVerbose(@"Subscriptions: %@",_subscriptions);
+    //DDLogVerbose(@"Subscriptions: %@",_subscriptions);
 
     [super didReceiveMessage:message];
 }

@@ -52,4 +52,16 @@
     return self.emails[index];
 }
 
++ (void) meteorRegisterUserWithParameters:(NSDictionary*)parameters completion:(MYCompletionBlock)completionBlock
+{
+    NSString *message = [NSString stringWithFormat:@"Must override: %s",__PRETTY_FUNCTION__];
+    NSAssert([self respondsToSelector:_cmd],message);
+}
+
+- (void) meteorUpdateUserWithParameters:(NSDictionary*)parameters completion:(MYCompletionBlock)completionBlock
+{
+    NSString *message = [NSString stringWithFormat:@"Must override: %s",__PRETTY_FUNCTION__];
+    NSAssert([self respondsToSelector:_cmd],message);
+}
+
 @end

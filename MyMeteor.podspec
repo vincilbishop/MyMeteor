@@ -18,8 +18,7 @@ Pod::Spec.new do |spec|
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
         core.ios.dependency 'ObjectiveDDP', '~>0.1.3'
-        core.ios.dependency 'ReactiveCocoa', '~>2.3'
-        core.prefix_header_contents = 	'#import "ReactiveCocoa.h"'
+
         
         # core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', '~>0.0.3'
         # core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"'
@@ -27,6 +26,8 @@ Pod::Spec.new do |spec|
     
     spec.subspec "Reactive" do |reactive|
         reactive.source_files = 'MyMeteor/Reactive/*.{h,m}'
+        reactive.ios.dependency 'ReactiveCocoa', '~>2.3'
+        reactive.prefix_header_contents = 	'#import "ReactiveCocoa.h"'
         reactive.ios.dependency 'MyMeteor/Core'
     end
     
@@ -37,8 +38,9 @@ Pod::Spec.new do |spec|
         model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.3'
         model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.3'
         model.ios.dependency 'Underscore.m', '~>0.2.1'
+        model.ios.dependency 'NSObject-AutomagicCoding', '~>1.1.1'
         model.ios.dependency 'MyMeteor/Core'
-        model.prefix_header_contents = '#import "MYMeteorModelObjectBase.h"', '#import "Underscore.h"', '#ifndef _', '#define _ Underscore', '#endif'
+        model.prefix_header_contents = '#import "MYMeteorModelObjectBase.h"', '#import "NSObject+AutoMagicCoding.h"', '#import "Underscore.h"', '#ifndef _', '#define _ Underscore', '#endif'
     end
     
     spec.subspec "UIKit" do |uikit|

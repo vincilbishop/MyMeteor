@@ -12,8 +12,25 @@
 
 @interface MYMeteorModelObjectBase : MYMongoModelObjectBase<MYMeteorableModelObject>
 
+/**
+ *  All objects in the meteor collection represented by this class.
+ *
+ *  @return An NSArray with strongly typed objects.
+ */
 + (NSArray*) collectionObjects;
+
+/**
+ *  The string representing the collection on the meteor server for this class.
+ *
+ *  @return The collection's string name.
+ */
 + (NSString*) collectionString;
+
+/**
+ *  A Boolean representing whether the class has been registered with the [MYMeteorClient sharedClient] instance.
+ *
+ *  @return A Boolean indicating if the class has been registrered or not.
+ */
 + (BOOL) isRegistered;
 + (void) registerModelClass;
 

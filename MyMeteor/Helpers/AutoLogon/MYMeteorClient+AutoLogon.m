@@ -15,6 +15,14 @@
 
 @implementation MYMeteorClient (AutoLogon)
 
+- (void) clearDefaultCredentials
+{
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMYMeteorClient_DefaultUsername_Key];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMYMeteorClient_DefaultPassword_Key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void) logonAndSetDefaultCredentialsWithUsername:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback
 {
     [self logonWithUsername:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
@@ -46,6 +54,12 @@
             responseCallback(nil,[NSError genericErrorWithLocalizedDescription:@"Default credentials are not set."]);
         }
     }
+}
+
+- (void) logoutAndClearDefaultCredentials
+{
+    [self clearDefaultCredentials];
+    [self logout];
 }
 
 - (BOOL) hasDefaultCredentials

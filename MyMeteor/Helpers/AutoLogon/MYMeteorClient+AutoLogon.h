@@ -10,12 +10,22 @@
 
 @interface MYMeteorClient (AutoLogon)
 
+- (void) clearDefaultCredentials;
+
 - (void) logonAndSetDefaultCredentialsWithUsername:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback;
+
 - (void) logonWithDefaultCredentialsAndResponseCallback:(MeteorClientMethodCallback)responseCallback;
+
+- (void) logoutAndClearDefaultCredentials;
+
 - (BOOL) hasDefaultCredentials;
+
 - (NSString*) defaultUsername;
+
 - (NSString*) defaultPassword;
+
 - (void) setDefaultUsername:(NSString*)username;
+
 - (void) setDefaultPassword:(NSString*)password;
 
 @end

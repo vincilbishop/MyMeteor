@@ -56,4 +56,27 @@
 
 }
 
+- (void) observeChangesForCollection:(NSString*)collectionString onChangeBlock:(MYCompletionBlock)onChangeBlock
+{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        return [RACObserve([MYMeteorClient sharedClient], collections[collectionString]) subscribeNext:^(NSArray *collection) {
+            
+            [subscriber sendNext:@[subscriber,collection]];
+        }];
+    }];
+    
+    [signal subscribeNext:^(NSArray *result) {
+        
+        id<RACSubscriber> subscriber = result[0];
+        NSArray *collection = result[1];
+        if (onChangeBlock) {
+            onChangeBlock(subscriber,YES,nil,collection);
+        }
+    }];
+}
+
+
+
+
 @end

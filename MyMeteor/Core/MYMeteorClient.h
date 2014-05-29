@@ -19,6 +19,7 @@
 @interface MYMeteorClient : MeteorClient
 
 + (void) setMeteorURLString:(NSString*)urlString;
++ (void) setDDPVersion:(NSString*)ddpVersion;
 + (MYMeteorClient*) sharedClient;
 
 @end

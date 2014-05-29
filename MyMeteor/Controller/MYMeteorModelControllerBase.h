@@ -16,6 +16,9 @@
 
 - (id) initWithClass:(Class<MYMeteorableModelObject>)modelClass;
 
+- (void) handleCollectionChanged:(NSNotification*)notification;
+- (void) handleCollectionAdded:(NSNotification*)notification;
 - (void) handleCollectionUpdated:(NSNotification*)notification;
+- (void) handleCollectionRemoved:(NSNotification*)notification;
 
 @end

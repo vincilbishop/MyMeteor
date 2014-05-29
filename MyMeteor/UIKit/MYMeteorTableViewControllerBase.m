@@ -103,24 +103,24 @@
     }];
 }
 
-- (void) handleCollectionUpdated:(NSNotification*)notification
+- (void) handleCollectionChanged:(NSNotification*)notification
 {
     [self reloadTableViewCollection];
 }
 
 - (void) handleAdded:(NSNotification*)notification
 {
-    [self handleCollectionUpdated:notification];
+    [self handleCollectionChanged:notification];
 }
 
 - (void) handleRemoved:(NSNotification*)notification
 {
-    [self handleCollectionUpdated:notification];
+    [self handleCollectionChanged:notification];
 }
 
 - (void) handleChanged:(NSNotification*)notification
 {
-    [self handleCollectionUpdated:notification];
+    [self handleCollectionChanged:notification];
 }
 
 #pragma mark - Helpers -

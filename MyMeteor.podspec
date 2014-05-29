@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
     
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
-        core.ios.dependency 'ObjectiveDDP', '~>0.1.3'
+        core.ios.dependency 'ObjectiveDDP'
 
         
         # core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', '~>0.0.3'
@@ -66,6 +66,4 @@ Pod::Spec.new do |spec|
         end
     end
     
-    
-
 end # spec

@@ -10,6 +10,31 @@
 
 @implementation MYMeteorClient (ReactiveAdditions)
 
+- (void) connectionReadyBlock:(MYCompletionBlock)block
+{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        return [RACObserve([MYMeteorClient sharedClient], connected) subscribeNext:^(NSNumber *connected) {
+            
+            if ([connected boolValue]) {
+                [subscriber sendNext:@[subscriber,connected]];
+                
+                [subscriber sendCompleted];
+            }
+        }];
+    }];
+    
+    [signal subscribeNext:^(NSArray *result) {
+        
+        id<RACSubscriber> subscriber = result[0];
+        NSNumber *connected = result[1];
+        if (block) {
+            block(subscriber,YES,nil,connected);
+        }
+    }];
+    
+}
+
 - (void) webSocketReadyBlock:(MYCompletionBlock)block
 {
     RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -34,6 +59,28 @@
     }];
 
 }
+
+- (void) observeConnectionStateWithBlock:(MYCompletionBlock)block
+{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        return [RACObserve([MYMeteorClient sharedClient], connected) subscribeNext:^(NSNumber *connected) {
+            
+            [subscriber sendNext:@[subscriber,connected]];
+        }];
+    }];
+    
+    [signal subscribeNext:^(NSArray *result) {
+        
+        id<RACSubscriber> subscriber = result[0];
+        NSNumber *connected = result[1];
+        if (block) {
+            block(subscriber,YES,nil,connected);
+        }
+    }];
+    
+}
+
 
 - (void) observeWebSocketStateWithBlock:(MYCompletionBlock)block
 {
@@ -75,8 +122,5 @@
         }
     }];
 }
-
-
-
 
 @end

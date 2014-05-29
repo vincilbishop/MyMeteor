@@ -10,7 +10,9 @@
 
 @interface MYMeteorClient (ReactiveAdditions)
 
+- (void) connectionReadyBlock:(MYCompletionBlock)block;
 - (void) webSocketReadyBlock:(MYCompletionBlock)block;
+- (void) observeConnectionStateWithBlock:(MYCompletionBlock)block;
 - (void) observeWebSocketStateWithBlock:(MYCompletionBlock)block;
 
 - (void) observeChangesForCollection:(NSString*)collectionString onChangeBlock:(MYCompletionBlock)onChangeBlock;

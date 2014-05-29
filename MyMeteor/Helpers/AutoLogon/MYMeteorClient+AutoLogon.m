@@ -47,7 +47,12 @@
 - (void) logonWithDefaultCredentialsAndResponseCallback:(MeteorClientMethodCallback)responseCallback
 {
     if ([self hasDefaultCredentials]) {
-        [[MYMeteorClient sharedClient] logout];
+        
+        if ([MYMeteorClient sharedClient].authState == AuthStateLoggedIn || [MYMeteorClient sharedClient].authState == AuthStateLoggingIn) {
+            [[MYMeteorClient sharedClient] logout];
+        }
+        
+        
         [self logonWithUsername:[self defaultUsername] password:[self defaultPassword] responseCallback:responseCallback];
     } else {
         if (responseCallback) {

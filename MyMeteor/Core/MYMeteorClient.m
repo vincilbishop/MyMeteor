@@ -13,11 +13,12 @@
 
 static MYMeteorClient *_sharedClient;
 static NSString *_urlString;
+static NSString *_ddpVersion;
 
 + (MYMeteorClient*) sharedClient
 {
     if (!_sharedClient) {
-        _sharedClient = [MYMeteorClient new];
+        _sharedClient = [[MYMeteorClient alloc] init];
     }
     
     return _sharedClient;
@@ -28,9 +29,23 @@ static NSString *_urlString;
     _urlString = urlString;
 }
 
++ (void) setDDPVersion:(NSString*)ddpVersion
+{
+    _ddpVersion = ddpVersion;
+}
+
 - (id) init
 {
-    self = [super init];
+    return [self initWithDDPVersion:_ddpVersion];
+}
+
+- (id) initWithDDPVersion:(NSString *)ddpVersion
+{
+    if (!ddpVersion) {
+        ddpVersion = @"pre2";
+    }
+    
+    self = [super initWithDDPVersion:ddpVersion];
     
     if (self) {
         
@@ -38,7 +53,7 @@ static NSString *_urlString;
         
         self.ddp = [[ObjectiveDDP alloc] initWithURLString:_urlString delegate:self];
         [self.ddp connectWebSocket];
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        //[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     }
     
     return self;

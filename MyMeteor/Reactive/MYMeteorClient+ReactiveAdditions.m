@@ -51,51 +51,51 @@
             //[userId.rac_deallocDisposable dispose];
         }
     }];
-
+    
     /*
-    [RACObserve([MYMeteorClient sharedClient], connected) subscribeNext:^(NSNumber *connected) {
-        
-        if ([connected boolValue]) {
-         
-            if (block) {
-            
-                block(self,YES,nil,connected);
-                
-            }
-            
-            [connected.rac_deallocDisposable dispose];
-        }
-    }];
+     [RACObserve([MYMeteorClient sharedClient], connected) subscribeNext:^(NSNumber *connected) {
+     
+     if ([connected boolValue]) {
+     
+     if (block) {
+     
+     block(self,YES,nil,connected);
+     
+     }
+     
+     [connected.rac_deallocDisposable dispose];
+     }
+     }];
      */
 }
 
 
 /*
-- (void) connectionReadyBlock:(MYCompletionBlock)block
-{
-    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        
-        return [RACObserve([MYMeteorClient sharedClient], connected) subscribeNext:^(NSNumber *connected) {
-            
-            if ([connected boolValue]) {
-                [subscriber sendNext:@[subscriber,connected]];
-                
-                [subscriber sendCompleted];
-            }
-        }];
-    }];
-    
-    [signal subscribeNext:^(NSArray *result) {
-        
-        id<RACSubscriber> subscriber = result[0];
-        NSNumber *connected = result[1];
-        if (block) {
-            block(subscriber,YES,nil,connected);
-        }
-    }];
-    
-}
-*/
+ - (void) connectionReadyBlock:(MYCompletionBlock)block
+ {
+ RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+ 
+ return [RACObserve([MYMeteorClient sharedClient], connected) subscribeNext:^(NSNumber *connected) {
+ 
+ if ([connected boolValue]) {
+ [subscriber sendNext:@[subscriber,connected]];
+ 
+ [subscriber sendCompleted];
+ }
+ }];
+ }];
+ 
+ [signal subscribeNext:^(NSArray *result) {
+ 
+ id<RACSubscriber> subscriber = result[0];
+ NSNumber *connected = result[1];
+ if (block) {
+ block(subscriber,YES,nil,connected);
+ }
+ }];
+ 
+ }
+ */
 
 - (void) webSocketReadyBlock:(MYCompletionBlock)block
 {
@@ -119,7 +119,7 @@
             block(subscriber,YES,nil,websocketReady);
         }
     }];
-
+    
 }
 
 - (void) observeConnectionStateWithBlock:(MYCompletionBlock)block
@@ -162,27 +162,7 @@
             block(subscriber,YES,nil,websocketReady);
         }
     }];
-
-}
-
-- (void) observeChangesForCollection:(NSString*)collectionString onChangeBlock:(MYCompletionBlock)onChangeBlock
-{
-    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        
-        return [RACObserve([MYMeteorClient sharedClient], collections[collectionString]) subscribeNext:^(NSArray *collection) {
-            
-            [subscriber sendNext:@[subscriber,collection]];
-        }];
-    }];
     
-    [signal subscribeNext:^(NSArray *result) {
-        
-        id<RACSubscriber> subscriber = result[0];
-        NSArray *collection = result[1];
-        if (onChangeBlock) {
-            onChangeBlock(subscriber,YES,nil,collection);
-        }
-    }];
 }
 
 @end

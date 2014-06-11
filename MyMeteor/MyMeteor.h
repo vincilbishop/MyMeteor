@@ -16,5 +16,5 @@
 #import "MyMeteorHelpers.h"
 #import "MyMeteorModel.h"
 #import "MyMeteorUIKit.h"
+#import "MyMeteorReactive.h"
 
-#import "MYMeteorClient+ReactiveAdditions.h"

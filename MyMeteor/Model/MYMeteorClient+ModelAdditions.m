@@ -15,10 +15,12 @@ static NSMutableDictionary *_collectionClasses;
 
 - (NSArray*) collectionForClass:(Class<MYMeteorableModelObject>)modelClass
 {
-    NSArray *objects = [[modelClass parser] parseArray:[MYMeteorClient sharedClient].collections[[modelClass collectionString]]];
-    
-    return objects;
-
+    @synchronized(self.collections) {
+        NSArray *objectDictionaries = [[MYMeteorClient sharedClient].collections[[modelClass collectionString]] copy];
+        NSArray *objects = [[modelClass parser] parseArray:objectDictionaries];
+        
+        return objects;
+    }
 }
 
 
@@ -52,7 +54,7 @@ static NSMutableDictionary *_collectionClasses;
     
     // Have to make an exception because meteor does not follow our naming convention :(
     //if ([classString isEqualToString:@"users"]) {
-        //classString = @"user";
+    //classString = @"user";
     //}
     
     NSString *collectionName = [[classString lowercaseString] substringFromIndex:2];

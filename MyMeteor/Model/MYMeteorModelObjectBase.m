@@ -67,8 +67,45 @@
     return objects;
 }
 
++ (NSArray*) objectsForPredicate:(NSPredicate*)predicate
+{
+    NSArray *objects = [[self collectionObjects] filteredArrayUsingPredicate:predicate];
+    
+    return objects;
+}
+
++ (MYModelObjectBase*) objectForPredicate:(NSPredicate*)predicate
+{
+    NSArray *objects = [self objectsForPredicate:predicate];
+    
+    if (objects.count == 1) {
+        
+        return objects[0];
+        
+    } else {
+        
+        return nil;
+    }
+}
+
 
 #pragma mark - CRUD -
+
+- (void) meteorInsertWithCompletion:(MYCompletionBlock)completionBlock
+{
+    // TODO: Add generic code here that will map the current model object
+    // with a collection, and save to the server
+    NSString *message = [NSString stringWithFormat:@"Must override: %s",__PRETTY_FUNCTION__];
+    NSAssert([self respondsToSelector:_cmd],message);
+}
+
+- (void) meteorUpdateWithCompletion:(MYCompletionBlock)completionBlock
+{
+    // TODO: Add generic code here that will map the current model object
+    // with a collection, and save to the server
+    NSString *message = [NSString stringWithFormat:@"Must override: %s",__PRETTY_FUNCTION__];
+    NSAssert([self respondsToSelector:_cmd],message);
+}
 
 - (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock
 {

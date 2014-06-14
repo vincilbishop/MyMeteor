@@ -36,7 +36,11 @@
 
 + (MYMeteorModelObjectBase*) objectForId:(NSString*)_id;
 + (NSArray*) objectsForIds:(NSArray*)ids;
++ (NSArray*) objectsForPredicate:(NSPredicate*)predicate;
++ (MYModelObjectBase*) objectForPredicate:(NSPredicate*)predicate;
 
+- (void) meteorInsertWithCompletion:(MYCompletionBlock)completionBlock;
+- (void) meteorUpdateWithCompletion:(MYCompletionBlock)completionBlock;
 - (void) meteorUpsertWithCompletion:(MYCompletionBlock)completionBlock;
 - (void) meteorDeleteWithCompletion:(MYCompletionBlock)completionBlock;
 

@@ -17,4 +17,5 @@
 #import "MYMeteorModelObjectBase.h"
 #import "MYMeteorUserEmail.h"
 #import "MYMeteorUserObjectBase.h"
+#import "NSDate+MYMeteorDateAdditions.h"
 #import "NSDictionary+MYMeteorDateAdditions.h"

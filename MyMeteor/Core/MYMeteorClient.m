@@ -9,6 +9,12 @@
 #import "MYMeteorClient.h"
 #import "MeteorClient+Private.h"
 
+@interface MeteorClient ()
+
+- (BOOL)_rejectIfNotConnected:(MeteorClientMethodCallback)responseCallback;
+
+@end
+
 @implementation MYMeteorClient
 
 static MYMeteorClient *_sharedClient;
@@ -76,7 +82,7 @@ static NSString *_ddpVersion;
         
         if (responseCallback) {
             responseCallback(response,error);
-        }        
+        }
     }];
 }
 
@@ -85,6 +91,37 @@ static NSString *_ddpVersion;
 - (void) didReceiveMessage:(NSDictionary *)message
 {
     [super didReceiveMessage:message];
+}
+
+#pragma mark - Connection -
+
+- (BOOL)_rejectIfNotConnected:(MeteorClientMethodCallback)responseCallback {
+    
+    for (int i = 0; i < 3; i++) {
+        // Let's try to connect if we aren't connected...
+        if (!self.connected) {
+            
+            DDLogVerbose(@"Whoah...seems like we lost our meteor connection...Let's try to reconnect on a background thread and then back off for a few seconds to see if it was successful...we have tried this %i times", i + 1);
+            
+            [[NSOperationQueue backgroundQueue] addOperationWithBlock:^{
+                @try {
+                    [self.ddp connectWithSession:nil version:self.ddpVersion support:nil];
+                }
+                @catch (NSException *exception) {
+                    DDLogVerbose(@"exception when trying to connect: %@",exception);
+                }
+                @finally {
+                    //
+                }
+                
+            }];
+            
+            // Wait a half a second
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+        }
+    }
+    
+    return [super _rejectIfNotConnected:responseCallback];
 }
 
 @end

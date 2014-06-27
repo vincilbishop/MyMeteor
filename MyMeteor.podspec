@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     
 	spec.name		= 'MyMeteor'
-	spec.version	= '0.0.3'
+	spec.version	= '0.0.4'
 	spec.homepage   = "http://github.com/premosystems/MyMeteor"
 	spec.author     = { "Vincil Bishop" => "vincil.bishop@vbishop.com" }
 	spec.license	= 'MIT'
@@ -18,10 +18,9 @@ Pod::Spec.new do |spec|
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
         core.ios.dependency 'ObjectiveDDP'
-
-        
-        # core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', '~>0.0.3'
-        # core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"'
+        core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack'
+        core.ios.dependency 'MyiOSHelpers/Logic/Categories'
+        core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"', '#import "MyiOSLogicCategories.h"'
     end
     
     spec.subspec "Reactive" do |reactive|
@@ -45,7 +44,7 @@ Pod::Spec.new do |spec|
     
     spec.subspec "UIKit" do |uikit|
         uikit.source_files = 'MyMeteor/UIKit/*.{h,m}'
-        uikit.ios.dependency 'MyiOSViewHelpers', '~>0.0.1'
+        uikit.ios.dependency 'MyiOSViewHelpers'
         uikit.ios.dependency 'MyMeteor/Model'
     end
     

@@ -22,4 +22,7 @@
 + (void) setDDPVersion:(NSString*)ddpVersion;
 + (MYMeteorClient*) sharedClient;
 
+
+- (BOOL)okToSend;
+
 @end

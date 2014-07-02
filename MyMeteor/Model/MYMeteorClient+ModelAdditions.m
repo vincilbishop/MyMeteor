@@ -15,12 +15,12 @@ static NSMutableDictionary *_collectionClasses;
 
 - (NSArray*) collectionForClass:(Class<MYMeteorableModelObject>)modelClass
 {
-    @synchronized(self.collections) {
+    //@synchronized(self.collections) {
         NSArray *objectDictionaries = [[MYMeteorClient sharedClient].collections[[modelClass collectionString]] copy];
         NSArray *objects = [[modelClass parser] parseArray:objectDictionaries];
         
         return objects;
-    }
+    //}
 }
 
 

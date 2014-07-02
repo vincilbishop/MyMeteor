@@ -15,5 +15,7 @@
 - (void) webSocketReadyBlock:(MYCompletionBlock)block;
 - (void) observeConnectionStateWithBlock:(MYCompletionBlock)block;
 - (void) observeWebSocketStateWithBlock:(MYCompletionBlock)block;
+- (void) observeCollectionChangesWithBlock:(MYCompletionBlock)block;
+- (void) observeChangesForCollection:(NSString*)collection withBlock:(MYCompletionBlock)block;
 
 @end

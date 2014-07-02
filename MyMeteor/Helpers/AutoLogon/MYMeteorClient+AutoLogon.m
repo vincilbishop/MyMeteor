@@ -23,9 +23,9 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void) logonAndSetDefaultCredentialsWithUsername:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback
+- (void) logonAndSetDefaultCredentialsWithEmail:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback
 {
-    [self logonWithUsername:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
+    [self logonWithEmail:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
         
         if ([response logonSuccess]) {
             
@@ -53,7 +53,7 @@
         }
         
         
-        [self logonWithUsername:[self defaultUsername] password:[self defaultPassword] responseCallback:responseCallback];
+        [self logonWithEmail:[self defaultUsername] password:[self defaultPassword] responseCallback:responseCallback];
     } else {
         if (responseCallback) {
             responseCallback(nil,[NSError genericErrorWithLocalizedDescription:@"Default credentials are not set."]);

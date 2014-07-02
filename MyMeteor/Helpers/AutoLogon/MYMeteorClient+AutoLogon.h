@@ -12,7 +12,7 @@
 
 - (void) clearDefaultCredentials;
 
-- (void) logonAndSetDefaultCredentialsWithUsername:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback;
+- (void) logonAndSetDefaultCredentialsWithEmail:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback;
 
 - (void) logonWithDefaultCredentialsAndResponseCallback:(MeteorClientMethodCallback)responseCallback;
 

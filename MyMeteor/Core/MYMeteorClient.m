@@ -67,8 +67,10 @@ static NSString *_ddpVersion;
 
 #pragma mark - Login -
 
+/*
 - (void)logonWithUserParameters:(NSDictionary *)userParameters username:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback
 {
+    
     [super logonWithUserParameters:userParameters username:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
         
         if ([response logonSuccess]) {
@@ -85,6 +87,7 @@ static NSString *_ddpVersion;
         }
     }];
 }
+ */
 
 #pragma mark - Messages -
 

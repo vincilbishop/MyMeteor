@@ -56,7 +56,7 @@ static NSString *_ddpVersion;
     if (self) {
         
         NSAssert(_urlString,@"static urlString must be set!");
-        
+        DDLogVerbose(@"Connected To: %@",_urlString);
         self.ddp = [[ObjectiveDDP alloc] initWithURLString:_urlString delegate:self];
         [self.ddp connectWebSocket];
         //[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];

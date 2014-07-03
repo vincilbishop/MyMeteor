@@ -27,7 +27,7 @@
 {
     [self logonWithEmail:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
         
-        if ([response logonSuccess]) {
+        if (!error) {
             
             [self setDefaultUsername:username];
             [self setDefaultPassword:password];

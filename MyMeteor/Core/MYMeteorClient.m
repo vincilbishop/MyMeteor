@@ -67,27 +67,37 @@ static NSString *_ddpVersion;
 
 #pragma mark - Login -
 
-/*
-- (void)logonWithUserParameters:(NSDictionary *)userParameters username:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback
+- (void) logonWithFacebookData:(NSDictionary*)fbData accessToken:(NSString*)accessToken completion:(MYCompletionBlock)completionBlock
 {
-    
-    [super logonWithUserParameters:userParameters username:username password:password responseCallback:^(NSDictionary *response, NSError *error) {
+    NSDictionary *parameters = @{@"fbData":fbData,@"accessToken":accessToken};
+    [[MYMeteorClient sharedClient] callMethodName:@"login" parameters:@[parameters] responseCallback:^(NSDictionary *response, NSError *error) {
         
-        if ([response logonSuccess]) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:kMyMeteor_LogonSuccess_Notification object:response];
-            
-        } else {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:kMyMeteor_LogonFailure_Notification object:error];
+        DDLogVerbose(@"Result: %@",response);
+        
+        /*
+         {
+         id = 1;
+         msg = result;
+         result =     {
+         id = jhb255NjvEWjCW5Hr;
+         token = "TzxtMyH-x8TsX5ZljZvdKPpC4OpHDy_Y_EM039bRGjZ";
+         tokenExpires =         {
+         "$date" = 1411144402240;
+         };
+         };
+         }
+         */
+        [MYMeteorClient sharedClient].userId = [response valueForKeyPath:@"result.id"];
+        [MYMeteorClient sharedClient]->_sessionToken = [response valueForKeyPath:@"result.token"];
+        [[MYMeteorClient sharedClient] _setAuthStateToLoggedIn];
+        
+        if(completionBlock){
+            completionBlock(self,error == nil,error,response);
         }
         
-        if (responseCallback) {
-            responseCallback(response,error);
-        }
     }];
 }
- */
+
 
 #pragma mark - Messages -
 

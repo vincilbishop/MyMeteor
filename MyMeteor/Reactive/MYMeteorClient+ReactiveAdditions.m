@@ -13,22 +13,19 @@
 
 - (void) authenticatedBlock:(MYCompletionBlock)block
 {
-    [[[RACObserve([MYMeteorClient sharedClient], authState) skipUntilBlock:^BOOL(NSNumber *authState) {
+    [[[RACObserve([MYMeteorClient sharedClient], userId) skipUntilBlock:^BOOL(NSString *userId) {
         
-        return [authState intValue] == AuthStateLoggedIn;
+        return userId != nil;
         
-    }] take:1] subscribeNext:^(NSNumber *authState) {
+    }] take:1] subscribeNext:^(NSString *userId) {
         
-        if (authState) {
+        if (userId != nil) {
             
             if (block) {
                 
-                block(self,YES,nil,authState);
+                block(self,YES,nil,userId);
                 
-            }
-            
-            //[userId.rac_deallocDisposable dispose];
-        }
+            }        }
     }];
     
 }

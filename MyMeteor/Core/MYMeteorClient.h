@@ -25,6 +25,6 @@
 
 - (void) logonWithFacebookData:(NSDictionary*)fbData accessToken:(NSString*)accessToken completion:(MYCompletionBlock)completionBlock;
 
-- (BOOL)okToSend;
+//- (BOOL)okToSend;
 
 @end

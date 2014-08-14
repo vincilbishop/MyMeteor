@@ -56,10 +56,20 @@ static NSString *_ddpVersion;
     if (self) {
         
         NSAssert(_urlString,@"static urlString must be set!");
-        DDLogVerbose(@"Connected To: %@",_urlString);
+        
         self.ddp = [[ObjectiveDDP alloc] initWithURLString:_urlString delegate:self];
-        [self.ddp connectWebSocket];
-        //[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        
+        [[NSOperationQueue currentQueue] tryOperationWithBlock:^{
+            [self.ddp connectWebSocket];
+        } successTest:^BOOL{
+            return self.connected;
+        } repeatCount:30 waitBetweenTries:1];
+        
+        if (self.connected) {
+            DDLogVerbose(@"Connected To: %@",_urlString);
+        }
+        
+        
     }
     
     return self;
@@ -110,7 +120,15 @@ static NSString *_ddpVersion;
 
 - (BOOL)_rejectIfNotConnected:(MeteorClientMethodCallback)responseCallback {
     
-    for (int i = 0; i < 3; i++) {
+    [[NSOperationQueue backgroundQueue] tryOperationWithBlock:^{
+        [self.ddp connectWithSession:nil version:self.ddpVersion support:@[self.ddpVersion]];
+    } successTest:^BOOL{
+        return self.connected;
+    } repeatCount:30 waitBetweenTries:1];
+
+    
+    /*
+    for (int i = 0; i < 30; i++) {
         // Let's try to connect if we aren't connected...
         if (!self.connected) {
             
@@ -118,7 +136,7 @@ static NSString *_ddpVersion;
             
             [[NSOperationQueue backgroundQueue] addOperationWithBlock:^{
                 @try {
-                    [self.ddp connectWithSession:nil version:self.ddpVersion support:nil];
+                    [self.ddp connectWithSession:nil version:self.ddpVersion support:@[self.ddpVersion]];
                 }
                 @catch (NSException *exception) {
                     DDLogVerbose(@"exception when trying to connect: %@",exception);
@@ -129,10 +147,12 @@ static NSString *_ddpVersion;
                 
             }];
             
-            // Wait a half a second
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+            // Wait a second
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+            
         }
     }
+    */
     
     return [super _rejectIfNotConnected:responseCallback];
 }

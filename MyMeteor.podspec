@@ -20,6 +20,7 @@ Pod::Spec.new do |spec|
         core.ios.dependency 'ObjectiveDDP'
         core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', '~>1.0.0'
         core.ios.dependency 'MyiOSHelpers/Logic/Categories', '~>1.0.0'
+        core.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>1.0.0'
         core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"', '#import "MyiOSLogicCategories.h"'
     end
     
@@ -28,7 +29,7 @@ Pod::Spec.new do |spec|
         reactive.ios.dependency 'ReactiveCocoa', '~>2.3'
         reactive.prefix_header_contents = 	'#import "ReactiveCocoa.h"'
         reactive.ios.dependency 'MyMeteor/Core'
-        uikit.ios.dependency 'MyMeteor/Model'
+        reactive.ios.dependency 'MyMeteor/Model'
         reactive.ios.dependency 'BlocksKit', '~>2.2.3'
     end
     

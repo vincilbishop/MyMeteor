@@ -40,7 +40,6 @@ Pod::Spec.new do |spec|
         model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>1.0.0'
         model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>1.0.0'
         model.ios.dependency 'Underscore.m', '~>0.2.1'
-        model.ios.dependency 'NSObject-AutomagicCoding', '~>1.1.1'
         model.ios.dependency 'MyMeteor/Core'
         model.prefix_header_contents = '#import "MYMeteorModelObjectBase.h"', '#import "NSObject+AutoMagicCoding.h"', '#import "Underscore.h"', '#ifndef _', '#define _ Underscore', '#endif'
     end

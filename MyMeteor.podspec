@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     
 	spec.name		= 'MyMeteor'
-	spec.version	= '0.0.4'
+	spec.version	= '1.0.0'
 	spec.homepage   = "http://github.com/premosystems/MyMeteor"
 	spec.author     = { "Vincil Bishop" => "vincil.bishop@vbishop.com" }
 	spec.license	= 'MIT'
@@ -18,8 +18,8 @@ Pod::Spec.new do |spec|
     spec.subspec "Core" do |core|
         core.source_files = 'MyMeteor/Core/*.{h,m}'
         core.ios.dependency 'ObjectiveDDP'
-        core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack'
-        core.ios.dependency 'MyiOSHelpers/Logic/Categories'
+        core.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack', '~>1.0.0'
+        core.ios.dependency 'MyiOSHelpers/Logic/Categories', '~>1.0.0'
         core.prefix_header_contents = 	'#import "Lumberjack-Default-Log-Level.h"', '#import "MyiOSLogicCategories.h"'
     end
     
@@ -33,10 +33,10 @@ Pod::Spec.new do |spec|
     
     spec.subspec "Model" do |model|
         model.source_files = 'MyMeteor/Model/*.{h,m}'
-        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping', '~>0.0.3'
-        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/MongoDB', '~>0.0.3'
-        model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>0.0.3'
-        model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>0.0.3'
+        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping', '~>1.0.0'
+        model.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/MongoDB', '~>1.0.0'
+        model.ios.dependency 'MyiOSHelpers/Logic/Blocks', '~>1.0.0'
+        model.ios.dependency 'MyiOSHelpers/Logic/Categories/NSDictionary', '~>1.0.0'
         model.ios.dependency 'Underscore.m', '~>0.2.1'
         model.ios.dependency 'NSObject-AutomagicCoding', '~>1.1.1'
         model.ios.dependency 'MyMeteor/Core'
@@ -45,7 +45,7 @@ Pod::Spec.new do |spec|
     
     spec.subspec "UIKit" do |uikit|
         uikit.source_files = 'MyMeteor/UIKit/*.{h,m}'
-        uikit.ios.dependency 'MyiOSViewHelpers'
+        uikit.ios.dependency 'MyiOSViewHelpers', '~>1.0.0'
         uikit.ios.dependency 'MyMeteor/Model'
     end
     
@@ -60,8 +60,8 @@ Pod::Spec.new do |spec|
         
         helpers.subspec "AutoLogon" do |autologon|
             autologon.source_files = 'MyMeteor/Helpers/AutoLogon/*.{h,m}'
-            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSString', '~>0.0.3'
-            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSError', '~>0.0.3'
+            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSString', '~>1.0.0'
+            autologon.ios.dependency 'MyiOSHelpers/Logic/Categories/NSError', '~>1.0.0'
             autologon.ios.dependency 'MyMeteor/Core'
         end
     end

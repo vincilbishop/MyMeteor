@@ -28,6 +28,7 @@ Pod::Spec.new do |spec|
         reactive.ios.dependency 'ReactiveCocoa', '~>2.3'
         reactive.prefix_header_contents = 	'#import "ReactiveCocoa.h"'
         reactive.ios.dependency 'MyMeteor/Core'
+        uikit.ios.dependency 'MyMeteor/Model'
         reactive.ios.dependency 'BlocksKit', '~>2.2.3'
     end
     

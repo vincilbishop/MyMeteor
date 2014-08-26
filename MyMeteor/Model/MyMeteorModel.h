@@ -11,8 +11,6 @@
 
 #endif
 
-#import "NSObject+AutoMagicCoding.h"
-
 #import "MYMeteorClient+ModelAdditions.h"
 #import "MYMeteorModelObjectBase.h"
 #import "MYMeteorUserEmail.h"

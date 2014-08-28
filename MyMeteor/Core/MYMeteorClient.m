@@ -84,19 +84,6 @@ static NSString *_ddpVersion;
         
         DDLogVerbose(@"Result: %@",response);
         
-        /*
-         {
-         id = 1;
-         msg = result;
-         result =     {
-         id = jhb255NjvEWjCW5Hr;
-         token = "TzxtMyH-x8TsX5ZljZvdKPpC4OpHDy_Y_EM039bRGjZ";
-         tokenExpires =         {
-         "$date" = 1411144402240;
-         };
-         };
-         }
-         */
         [MYMeteorClient sharedClient].userId = [response valueForKeyPath:@"result.id"];
         [MYMeteorClient sharedClient]->_sessionToken = [response valueForKeyPath:@"result.token"];
         [[MYMeteorClient sharedClient] _setAuthStateToLoggedIn];
@@ -108,6 +95,21 @@ static NSString *_ddpVersion;
     }];
 }
 
+- (void)logonWithUsername:(NSString *)username password:(NSString *)password {
+    [super logonWithUsername:[username lowercaseString] password:password];
+}
+
+- (void)logonWithUsername:(NSString *)username password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback {
+    [super logonWithUsername:[username lowercaseString] password:password responseCallback:responseCallback];
+}
+
+- (void)logonWithEmail:(NSString *)email password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback {
+    [super logonWithEmail:[email lowercaseString] password:password responseCallback:responseCallback];
+}
+
+- (void)logonWithUsernameOrEmail:(NSString *)usernameOrEmail password:(NSString *)password responseCallback:(MeteorClientMethodCallback)responseCallback {
+    [super logonWithUsernameOrEmail:[usernameOrEmail lowercaseString] password:password responseCallback:responseCallback];
+}
 
 #pragma mark - Messages -
 

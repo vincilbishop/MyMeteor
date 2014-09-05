@@ -49,7 +49,7 @@
     if ([self hasDefaultCredentials]) {
         
         if ([MYMeteorClient sharedClient].authState == AuthStateLoggedIn || [MYMeteorClient sharedClient].authState == AuthStateLoggingIn) {
-            [[MYMeteorClient sharedClient] logout];
+            //[[MYMeteorClient sharedClient] logout];
         }
         
         

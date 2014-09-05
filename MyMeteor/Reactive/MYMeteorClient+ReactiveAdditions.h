@@ -11,6 +11,7 @@
 @interface MYMeteorClient (ReactiveAdditions)
 
 - (void) authenticatedBlock:(MYCompletionBlock)block;
+- (void) connectWithCompletion:(MYCompletionBlock)completion;
 - (void) connectionReadyBlock:(MYCompletionBlock)block;
 - (void) webSocketReadyBlock:(MYCompletionBlock)block;
 - (void) observeConnectionStateWithBlock:(MYCompletionBlock)block;

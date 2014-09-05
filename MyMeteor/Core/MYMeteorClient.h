@@ -25,6 +25,7 @@
 
 - (void) logonWithFacebookData:(NSDictionary*)fbData accessToken:(NSString*)accessToken completion:(MYCompletionBlock)completionBlock;
 
-//- (BOOL)okToSend;
+- (void) connect;
+- (void) connectWithQueue:(NSOperationQueue*)queue;
 
 @end

@@ -30,6 +30,16 @@
     
 }
 
+- (void) connectWithCompletion:(MYCompletionBlock)completion
+{
+    [self connectionReadyBlock:^(id sender, BOOL success, NSError *error, id result) {
+        
+        completion(sender,success,error,result);
+    }];
+    
+    [self connect];
+}
+
 - (void) connectionReadyBlock:(MYCompletionBlock)block
 {
     [[[RACObserve([MYMeteorClient sharedClient], connected) skipUntilBlock:^BOOL(NSNumber *connected) {
@@ -38,7 +48,7 @@
         
     }] take:1] subscribeNext:^(NSNumber *connected) {
         
-        if (connected) {
+        if ([connected boolValue]) {
             
             if (block) {
                 
@@ -53,6 +63,23 @@
 
 - (void) webSocketReadyBlock:(MYCompletionBlock)block
 {
+    [[[RACObserve([MYMeteorClient sharedClient], websocketReady) skipUntilBlock:^BOOL(NSNumber *websocketReady) {
+        
+        return [websocketReady boolValue] == YES;
+        
+    }] take:1] subscribeNext:^(NSNumber *websocketReady) {
+        
+        if ([websocketReady boolValue]) {
+            
+            if (block) {
+                
+                block(self,YES,nil,websocketReady);
+                
+            }
+        }
+    }];
+
+    /*
     RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         return [RACObserve([MYMeteorClient sharedClient], websocketReady) subscribeNext:^(NSNumber *websocketReady) {
@@ -73,6 +100,7 @@
             block(subscriber,YES,nil,websocketReady);
         }
     }];
+    */
     
 }
 

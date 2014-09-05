@@ -59,11 +59,7 @@ static NSString *_ddpVersion;
         
         self.ddp = [[ObjectiveDDP alloc] initWithURLString:_urlString delegate:self];
         
-        [[NSOperationQueue currentQueue] tryOperationWithBlock:^{
-            [self.ddp connectWebSocket];
-        } successTest:^BOOL{
-            return self.connected;
-        } repeatCount:30 waitBetweenTries:1];
+        [self connect];
         
         if (self.connected) {
             DDLogVerbose(@"Connected To: %@",_urlString);
@@ -73,6 +69,23 @@ static NSString *_ddpVersion;
     }
     
     return self;
+}
+
+- (void) connect
+{
+    [self connectWithQueue:[NSOperationQueue currentQueue]];
+}
+
+- (void) connectWithQueue:(NSOperationQueue*)queue
+{
+    [self.ddp disconnectWebSocket];
+    self.connected = NO;
+    [queue tryOperationWithBlock:^{
+        [self.ddp connectWebSocket];
+    } successTest:^BOOL{
+        return self.connected;
+    } repeatCount:30 waitBetweenTries:1];
+
 }
 
 #pragma mark - Login -
